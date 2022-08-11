@@ -131,18 +131,18 @@ df_finaltest = pd.concat([test_1, test_2,test_3,test_4], axis=1)
 df_finaltest = pd.concat([test_2,test_3,test_4], axis=1)
 
 
-grid={"C":np.logspace(-3,3,7), "penalty":["l1","l2"]}# l1 lasso l2 ridge
-logreg=LogisticRegression(random_state=0)
-logreg_cv=GridSearchCV(logreg,grid,cv=10)
-logreg_cv.fit(df_train,y_val)
-print("tuned hpyerparameters :(best parameters) ",logreg_cv.best_params_)
-print("accuracy :",logreg_cv.best_score_)
-logreg2=LogisticRegression(C=0.1,penalty="l2")
-logreg2.fit(df_test,y_test)
-print("score",logreg2.score(df_test,y_test))
+#grid={"C":np.logspace(-3,3,7), "penalty":["l1","l2"]}# l1 lasso l2 ridge
+#logreg=LogisticRegression(random_state=0)
+#logreg_cv=GridSearchCV(logreg,grid,cv=10)
+#logreg_cv.fit(df_train,y_val)
+#print("tuned hpyerparameters :(best parameters) ",logreg_cv.best_params_)
+#print("accuracy :",logreg_cv.best_score_)
+#logreg2=LogisticRegression(C=0.1,penalty="l2")
+#logreg2.fit(df_test,y_test)
+#print("score",logreg2.score(df_test,y_test))
 
-probs=logreg2.predict_proba(df_finaltest)
-probs = probs[:, 1]
+#probs=logreg2.predict_proba(df_finaltest)
+#probs = probs[:, 1]
 
-solution_template.hospital_death = probs
-solution_template.to_csv("D:/MS DS WPI/Sem II/WiDS/submission.csv", index=0)
+#solution_template.hospital_death = probs
+#solution_template.to_csv("D:/MS DS WPI/Sem II/WiDS/submission.csv", index=0)
